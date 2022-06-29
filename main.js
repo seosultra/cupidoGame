@@ -1,18 +1,17 @@
-
-const game = new Game()
+const game = new Game();
 
 function setup() {
-    createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+  createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 }
 
 function draw() {
-    game.play();
-};
+  game.play();
+}
 
-function preload(){
-    game.preload();
+function preload() {
+  game.preload();
 }
 
 function keyPressed() {
-    game.keyPressed();
+  game.keyPressed();
 }
