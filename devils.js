@@ -3,7 +3,7 @@ class Devil {
     this.height = height;
     this.width = width;
     this.top = random(100, CANVAS_HEIGHT - 20);
-    this.left = CANVAS_WIDTH + 5;
+    this.left = CANVAS_WIDTH + 10;
     this.speed = random(1, 5);
   }
 

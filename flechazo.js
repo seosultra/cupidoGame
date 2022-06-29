@@ -2,11 +2,13 @@ class Flecha {
   constructor(top, left) {
     this.top = top;
     this.left = left;
+    this.speed = 5;
   }
   throwFlecha() {
-    textSize(20);
+    textSize(35);
     text("🏹", this.left, this.top);
 
-    this.left += 1;
+    this.left += 2;
+    this.CANVAS_WIDTH -= this.speed;
   }
 }
