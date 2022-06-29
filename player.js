@@ -68,11 +68,22 @@ class Player {
     this.flechaArray.forEach((flecha) => {
       flecha.throwFlecha();
     });
+    //cleans flechazos
+    this.cleanUp();
   }
+
+  //stop the player on the
   hasReachedTheGround() {
     return this.top >= CANVAS_HEIGHT - this.height;
   }
+  // stop the player from the top
   hasReachedThSky() {
     return this.sky >= this.top;
+  }
+
+  cleanUp() {
+    this.flechaArray = this.flechaArray.filter(
+      (flechazo) => flechazo.left <= CANVAS_WIDTH
+    );
   }
 }

@@ -5,7 +5,7 @@ class Flecha {
     this.speed = 5;
   }
   throwFlecha() {
-    textSize(35);
+    textSize(27);
     text("🏹", this.left, this.top);
 
     this.left += 2;

@@ -8,6 +8,7 @@ class Devil {
   }
 
   draw() {
+    textSize(28);
     text("😈​​", this.left, this.top, this.width, this.height);
     //rect(this.left, this.top, this.width, this.height);
 
