@@ -7,6 +7,8 @@ class Player {
     this.velocity = 0;
     this.jumpCount = 0;
     this.movespeed = 5;
+    this.sky = 3;
+    this.flechaArray = [];
   }
 
   preload() {
@@ -18,14 +20,14 @@ class Player {
       this.jump();
     }
     if (keyCode === SPACE_BAR) {
-      this.shootDevil();
+      this.shootFlecha();
     }
   }
   jump() {
-    if (this.jumpCount === 5) {
+    if (this.jumpCount === 4) {
       return;
     }
-    this.top -= 45;
+    this.top -= 60;
     this.velocity -= 5;
     this.jumpCount++;
   }
@@ -42,9 +44,9 @@ class Player {
     }
   }
 
-  shootDevil() {
-    const heartLocation = this.cupidoLocation();
-    this.devilArray.push(new Devil(heartLocation.top, heartLocation.left));
+  shootFlecha() {
+    //const heartLocation = this.cupidoLocation();
+    this.flechaArray.push(new Flecha(this.top, this.left));
   }
   cupidoLocation() {
     return {
@@ -62,8 +64,14 @@ class Player {
       this.velocity = 0;
       this.jumpCount = 0;
     }
+    this.flechaArray.forEach((flecha) => {
+      flecha.throwFlecha();
+    });
   }
   hasReachedTheGround() {
     return this.top >= CANVAS_HEIGHT - this.height;
+  }
+  hasReachedThSky() {
+    return this.sky >= this.top;
   }
 }
