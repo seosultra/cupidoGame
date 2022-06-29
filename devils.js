@@ -13,4 +13,13 @@ class Devil {
 
     this.left -= this.speed;
   }
+
+  devilCollision(player) {
+    return (
+      player.left < this.left + this.width &&
+      player.left + player.width > this.left &&
+      player.top < this.top + this.height &&
+      player.height + player.top > this.top
+    );
+  }
 }

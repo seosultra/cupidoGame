@@ -9,6 +9,7 @@ class Player {
     this.movespeed = 5;
     this.sky = 3;
     this.flechaArray = [];
+    this.score = 7;
   }
 
   preload() {
