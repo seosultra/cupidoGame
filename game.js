@@ -50,11 +50,11 @@ class Game {
   isDevilCollidingStorm() {
     this.lovestorm.forEach((lovestorm, index) => {
       if (lovestorm.obstacleCollision(this.devils)) {
-        this.devils.draw("🥰​");
+        this.devil.draw("🥰​");
       }
     });
   }
-  // we want to check wether the player it colliding with the obstacle
+  // we want to check wether the player it colliding with the devil
   // conditions for true collision
   // Bottom of A >= Top of B
   // Top of A <= Bottom of B

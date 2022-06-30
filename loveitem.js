@@ -7,7 +7,7 @@ class LoveItem {
     this.speed = random(2, 5);
   }
   draw() {
-    text("💘​", this.left, this.top, this.width, this.height);
+    text("💘", this.left, this.top, this.width, this.height);
     //rect(this.left, this.top, this.width, this.height);
     // if (this.top <= CANVAS_FLOOR + this.height) {
     this.top += this.speed;

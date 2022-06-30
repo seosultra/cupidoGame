@@ -46,14 +46,7 @@ class Player {
   }
 
   shootFlecha() {
-    //const heartLocation = this.cupidoLocation();
-    this.flechaArray.push(new Flecha(this.top, this.left));
-  }
-  cupidoLocation() {
-    return {
-      top: this.top + 20,
-      left: this.left + 10,
-    };
+    this.flechaArray.push(new Flecha(this.top + 40, this.left + 35));
   }
 
   drawPlayer() {
@@ -72,7 +65,7 @@ class Player {
     this.cleanUp();
   }
 
-  //stop the player on the
+  //stop the player on the floor
   hasReachedTheGround() {
     return this.top >= CANVAS_HEIGHT - this.height;
   }
@@ -80,7 +73,7 @@ class Player {
   hasReachedThSky() {
     return this.sky >= this.top;
   }
-
+  //to clean flechazos
   cleanUp() {
     this.flechaArray = this.flechaArray.filter(
       (flechazo) => flechazo.left <= CANVAS_WIDTH

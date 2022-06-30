@@ -5,8 +5,9 @@ class Lovestorm {
   draw() {
     textSize(28);
     text("💘​", this.left, this.top, this.width, this.height);
+    this.top += this.speed;
 
-    if (frameCount % 60 === 0) {
+    if (frameCount % 20 === 0) {
       this.createParticle();
     }
 
