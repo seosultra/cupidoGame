@@ -9,7 +9,8 @@ class Player {
     this.movespeed = 5;
     this.sky = 3;
     this.flechaArray = [];
-    this.score = 7;
+    this.lives = 7;
+    this.score = 0;
   }
 
   preload() {
@@ -25,10 +26,10 @@ class Player {
     }
   }
   jump() {
-    if (this.jumpCount === 4) {
+    if (this.jumpCount === 7) {
       return;
     }
-    this.top -= 60;
+    this.top -= 40;
     this.velocity -= 5;
     this.jumpCount++;
   }
@@ -71,7 +72,7 @@ class Player {
   }
   // stop the player from the top
   hasReachedThSky() {
-    return this.sky >= this.top;
+    if ((this.top = 459)) return this.sky;
   }
   //to clean flechazos
   cleanUp() {
