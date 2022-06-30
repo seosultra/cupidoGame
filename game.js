@@ -4,6 +4,7 @@ class Game {
     this.background = new Background();
     this.lovestorm = new Lovestorm();
     this.devils = [];
+    this.flechas = [];
   }
 
   preload() {
@@ -16,7 +17,9 @@ class Game {
     this.background.drawBackground();
     this.player.drawPlayer();
     this.lovestorm.draw();
-
+    keyPressed() {
+        this.player.keyPressed();
+      }
     if (frameCount % 70 === 0) {
       this.devils.push(new Devil());
     }
@@ -28,32 +31,33 @@ class Game {
       devil.draw();
       return devil.left >= -devil.width;
     });
-
-    // obstacle is an array. look at what you were doing above (for Each) and use that on this.obstacleS. there is no this.obstacle
-    if (this.isColliding(this.player, this.obstacles)) {
-      this.obstacles.resetTopAndLeft();
-      this.player.score++;
-    }
-  }
-  keyPressed() {
-    this.player.keyPressed();
-  }
-  //collision between the devil and the player
-  isColliding() {
+   
+    // collision between devil & flecha
+    isDeCollidingFlecha() {
+        this.devils.forEach((devil, index) => {
+            if (flechas.flechaCollision(this.flechas)) {
+                this.player.score++;
+              }
+        });}
+ 
+  //collision between  devil & player. G.
+  isDeCollidingCupido() {
     this.devils.forEach((devil, index) => {
       if (devil.devilCollision(this.player)) {
-        this.player.score--;
+        this.player.lives--;
       }
     });
   }
   //collision between devil and lovestorm
-  isDevilCollidingStorm() {
+  isDeCollidingStorm() {
     this.lovestorm.forEach((lovestorm, index) => {
       if (lovestorm.obstacleCollision(this.devils)) {
-        this.devil.draw("🥰​");
+        this.devil.draw.text("🥰​", devil.left, devil.top, devil.width, devil.height);
       }
     });
   }
+  }
+  //collision between the devil & 
   // we want to check wether the player it colliding with the devil
   // conditions for true collision
   // Bottom of A >= Top of B

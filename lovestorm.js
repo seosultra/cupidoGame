@@ -20,13 +20,13 @@ class Lovestorm {
   createParticle() {
     this.stormArray.push(new LoveItem());
   }
-
+  //collision between devil and lovestorm
   loveCollision(devil) {
     return (
-      devil.left < this.left + this.width &&
-      devil.left + devil.width > this.left &&
-      devil.top < this.top + this.height &&
-      devil.height + devil.top > this.top
+      devil.left < loveItem.left + loveItem.width &&
+      devil.left + devil.width > loveItem.left &&
+      devil.top < loveItem.top + loveItem.height &&
+      devil.height + devil.top > loveItem.top
     );
   }
 }

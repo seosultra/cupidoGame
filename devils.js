@@ -14,13 +14,13 @@ class Devil {
 
     this.left -= this.speed;
   }
-
+  //colission between devil & player
   devilCollision(player) {
     return (
-      player.left < this.left + this.width &&
-      player.left + player.width > this.left &&
-      player.top < this.top + this.height &&
-      player.height + player.top > this.top
+      player.left < loveitem.left + loveitem.width &&
+      player.left + player.width > loveitem.left &&
+      player.top < loveitem.top + loveitem.height &&
+      player.height + player.top > loveitem.top
     );
   }
 }
