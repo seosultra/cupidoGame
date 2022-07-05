@@ -7,10 +7,10 @@ class Player {
     this.velocity = 0;
     this.jumpCount = 0;
     this.movespeed = 5;
-    this.sky = 3;
+    this.sky = 5;
     this.flechaArray = [];
     this.lives = 7;
-    this.score = 0;
+    // this.score = 0;
   }
 
   preload() {
@@ -26,9 +26,9 @@ class Player {
     }
   }
   jump() {
-    if (this.jumpCount === 7) {
-      return;
-    }
+    // if (this.jumpCount === 7) {
+    //   return;
+    // }
     this.top -= 40;
     this.velocity -= 5;
     this.jumpCount++;
@@ -47,7 +47,7 @@ class Player {
   }
 
   shootFlecha() {
-    this.flechaArray.push(new Flecha(this.top + 40, this.left + 35));
+    this.flechaArray.push(new Flecha(this.top + 10, this.left + 25));
   }
 
   drawPlayer() {
@@ -58,6 +58,10 @@ class Player {
       this.top = CANVAS_HEIGHT - this.height;
       this.velocity = 0;
       this.jumpCount = 0;
+    }
+    if (this.hasReachedTheSky()) {
+      this.top = 0;
+      this.velocity = 0;
     }
     this.flechaArray.forEach((flecha) => {
       flecha.throwFlecha();
@@ -71,8 +75,8 @@ class Player {
     return this.top >= CANVAS_HEIGHT - this.height;
   }
   // stop the player from the top
-  hasReachedThSky() {
-    if ((this.top = 459)) return this.sky;
+  hasReachedTheSky() {
+    return this.top < 0;
   }
   //to clean flechazos
   cleanUp() {

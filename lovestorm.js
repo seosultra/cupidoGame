@@ -7,7 +7,7 @@ class Lovestorm {
     text("💘​", this.left, this.top, this.width, this.height);
     this.top += this.speed;
 
-    if (frameCount % 20 === 0) {
+    if (frameCount % 10 === 0) {
       this.createParticle();
     }
 
@@ -22,6 +22,7 @@ class Lovestorm {
   }
   //collision between devil and lovestorm
   loveCollision(devil) {
+    console.log("Devil is in love");
     return (
       devil.left < loveItem.left + loveItem.width &&
       devil.left + devil.width > loveItem.left &&
