@@ -17,6 +17,10 @@ class Game {
   preload() {
     this.player.preload();
     this.background.preload();
+    backgroundMusic = loadSound("images/Flying.mp3");
+    flechaSound = loadSound("/images/flecha.mp3");
+    devilSound = loadSound("images/devil.mp3");
+    heartSound = loadSound("images/heart.mp3");
   }
 
   createStuff() {
@@ -61,21 +65,25 @@ class Game {
       this.stormArray.forEach((heart) => {
         if (this.isCollisionBetweenTwoElements(heart, devil)) {
           this.devilGetsHitByLove(devil);
+          heartSound.play();
+          heartSound.setVolume(0.3);
         }
       });
 
       this.player.flechaArray.forEach((flecha) => {
         if (this.isCollisionBetweenTwoElements(flecha, devil)) {
           devil.flechaCollisionDevil = true;
+          this.player.score++;
+          devilSound.play();
+          devilSound.setVolume(0.3);
         }
-        this.player.score++;
-        //scoreSpan = `${this.player.score} points`;
       });
     });
 
     this.devils = this.devils.filter((devil) => {
       devil.draw();
       return devil.left >= -devil.width && !devil.flechaCollisionDevil;
+      //return !devil.flechaCollisionDevil;
     });
 
     this.stormArray = this.stormArray.filter((item) => {

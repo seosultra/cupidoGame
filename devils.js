@@ -19,7 +19,6 @@ class Devil {
     }
     textSize(this.height);
     text(emoji, this.left, this.top, this.width, this.height);
-    //rect(this.left, this.top, this.width, this.height);
 
     this.left -= this.speed;
   }

@@ -6,6 +6,10 @@ const SPACE_BAR = 32;
 const ENTER_KEY = 13;
 const scoreSpan = document.querySelector(".score span");
 const livesSpan = document.querySelector(".lives span");
+let backgroundMusic;
+let flechaSound;
+let devilSound;
+let heartSound;
 
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;

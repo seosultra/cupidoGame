@@ -34,7 +34,6 @@ class Player {
     this.top -= 40;
     this.velocity -= 5;
     this.jumpCount++;
-    song.play();
   }
   move(key) {
     if (key === ARROW_LEFT) {
@@ -51,6 +50,8 @@ class Player {
 
   shootFlecha() {
     this.flechaArray.push(new Flecha(this.top + 5, this.left + 5));
+    flechaSound.play();
+    flechaSound.setVolume(0.3);
   }
 
   drawPlayer() {

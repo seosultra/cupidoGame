@@ -3,7 +3,7 @@ class Flecha {
     this.top = top + 35;
     this.left = left;
     this.height = 27;
-    this.width = width;
+    this.width = 27;
     this.speed = 5;
   }
   throwFlecha() {

@@ -21,13 +21,13 @@ class Lovestorm {
     this.stormArray.push(new LoveItem());
   }
   //collision between devil and lovestorm
-  loveCollision(devil) {
-    console.log("Devil is in love");
-    return (
-      devil.left < loveItem.left + loveItem.width &&
-      devil.left + devil.width > loveItem.left &&
-      devil.top < loveItem.top + loveItem.height &&
-      devil.height + devil.top > loveItem.top
-    );
-  }
+  // loveCollision(devil) {
+  //   console.log("Devil is in love");
+  //   return (
+  //     devil.left < loveItem.left + loveItem.width &&
+  //     devil.left + devil.width > loveItem.left &&
+  //     devil.top < loveItem.top + loveItem.height &&
+  //     devil.height + devil.top > loveItem.top
+  //   );
+  // }
 }
