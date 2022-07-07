@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.player = new Player();
+    this.player = new Player(livesSpan, scoreSpan);
     this.background = new Background();
     //  this.lovestorm = new Lovestorm();
     this.devils = [];
@@ -34,6 +34,7 @@ class Game {
       return;
     }
     player.lives--;
+    //livesSpan.innerText = `${this.player.lives} `;
     devil.hasHitPoorCupido = true;
   }
 
@@ -68,7 +69,7 @@ class Game {
           devil.flechaCollisionDevil = true;
         }
         this.player.score++;
-        // scoreSpan = `${this.score} points`;
+        //scoreSpan = `${this.player.score} points`;
       });
     });
 
@@ -81,6 +82,15 @@ class Game {
       item.draw();
       return item.top <= CANVAS_HEIGHT;
     });
+    // game lost
+    if (this.player.lives === 0) {
+      console.log("Game Over");
+      stop();
+    }
+    // won the game
+    if (this.player.score === 100) {
+      console.log("You win!");
+    }
   }
   keyPressed() {
     this.player.keyPressed();

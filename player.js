@@ -1,5 +1,5 @@
 class Player {
-  constructor() {
+  constructor(livesSpan, scoreSpan) {
     this.left = 50;
     this.top = 0;
     this.width = 95;
@@ -11,6 +11,8 @@ class Player {
     this.flechaArray = [];
     this.lives = 7;
     this.score = 0;
+    this.livesSpan = livesSpan;
+    this.scoreSpan = scoreSpan;
   }
 
   preload() {
@@ -32,6 +34,7 @@ class Player {
     this.top -= 40;
     this.velocity -= 5;
     this.jumpCount++;
+    song.play();
   }
   move(key) {
     if (key === ARROW_LEFT) {
@@ -51,6 +54,8 @@ class Player {
   }
 
   drawPlayer() {
+    this.scoreSpan.innerText = this.score;
+    this.livesSpan.innerText = this.lives;
     this.velocity += GRAVITY;
     this.top += this.velocity;
     image(this.img, this.left, this.top, this.width, this.height);
