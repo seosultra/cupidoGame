@@ -4,8 +4,8 @@ class Game {
     this.background = new Background();
     //  this.lovestorm = new Lovestorm();
     this.devils = [];
-    this.score = 0;
-    this.lives = 7;
+    //this.score = 0;
+    //this.lives = 7;
     this.flechas = [];
     this.stormArray = [];
   }
@@ -67,6 +67,8 @@ class Game {
         if (this.isCollisionBetweenTwoElements(flecha, devil)) {
           devil.flechaCollisionDevil = true;
         }
+        this.player.score++;
+        // scoreSpan = `${this.score} points`;
       });
     });
 

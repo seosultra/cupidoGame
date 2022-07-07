@@ -2,19 +2,19 @@ class Player {
   constructor() {
     this.left = 50;
     this.top = 0;
-    this.width = 50;
-    this.height = 50;
+    this.width = 95;
+    this.height = 95;
     this.velocity = 0;
     this.jumpCount = 0;
     this.movespeed = 5;
     this.sky = 5;
     this.flechaArray = [];
     this.lives = 7;
-    // this.score = 0;
+    this.score = 0;
   }
 
   preload() {
-    this.img = loadImage("images/cupido.png");
+    this.img = loadImage("images/cupid.png");
   }
 
   keyPressed() {
@@ -47,7 +47,7 @@ class Player {
   }
 
   shootFlecha() {
-    this.flechaArray.push(new Flecha(this.top + 10, this.left + 25));
+    this.flechaArray.push(new Flecha(this.top + 5, this.left + 5));
   }
 
   drawPlayer() {
@@ -74,7 +74,7 @@ class Player {
   hasReachedTheGround() {
     return this.top >= CANVAS_HEIGHT - this.height;
   }
-  // stop the player from the top
+  // stop the player on the top
   hasReachedTheSky() {
     return this.top < 0;
   }

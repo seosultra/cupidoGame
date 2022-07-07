@@ -1,8 +1,8 @@
 class Devil {
   constructor() {
-    this.height = 28;
-    this.width = width;
-    this.top = random(100, CANVAS_HEIGHT - 25);
+    this.height = 30;
+    this.width = 30;
+    this.top = random(100, CANVAS_HEIGHT - 50);
     this.left = CANVAS_WIDTH + 10;
     this.speed = random(1, 8);
     this.flechaCollisionDevil = false;
