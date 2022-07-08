@@ -2,12 +2,11 @@ class Game {
   constructor() {
     this.player = new Player(livesSpan, scoreSpan);
     this.background = new Background();
-    //  this.lovestorm = new Lovestorm();
     this.devils = [];
-    //this.score = 0;
-    //this.lives = 7;
     this.flechas = [];
     this.stormArray = [];
+    this.gameOver = false;
+    this.gameWon = false;
   }
 
   createParticle() {
@@ -21,6 +20,8 @@ class Game {
     flechaSound = loadSound("/images/flecha.mp3");
     devilSound = loadSound("images/devil.mp3");
     heartSound = loadSound("images/heart.mp3");
+    gameOverImage = loadImage("images/gameOv.jpeg");
+    gameWonImage = loadImage("images/wonG.jpeg");
   }
 
   createStuff() {
@@ -38,7 +39,7 @@ class Game {
       return;
     }
     player.lives--;
-    //livesSpan.innerText = `${this.player.lives} `;
+
     devil.hasHitPoorCupido = true;
   }
 
@@ -92,12 +93,32 @@ class Game {
     });
     // game lost
     if (this.player.lives === 0) {
-      console.log("Game Over");
-      stop();
+      this.gameOver = true;
+      setTimeout(function () {
+        //to restart the game
+        location.reload();
+      }, 2500);
+      //console.log("Game Over");
     }
     // won the game
-    if (this.player.score === 100) {
-      console.log("You win!");
+    if (this.player.score === 5) {
+      //console.log("You win!");
+      this.gameWon = true;
+      setTimeout(function () {
+        location.reload();
+      }, 2500);
+    }
+    if (this.gameOver) {
+      setTimeout(function () {
+        image(gameOverImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        noLoop();
+      }, 300); //mileseconds
+    }
+    if (this.gameWon) {
+      setTimeout(function () {
+        image(gameWonImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        noLoop();
+      }, 300);
     }
   }
   keyPressed() {

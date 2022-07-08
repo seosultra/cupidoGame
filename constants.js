@@ -10,6 +10,8 @@ let backgroundMusic;
 let flechaSound;
 let devilSound;
 let heartSound;
+let gameOverImage;
+let gameWonImage;
 
 const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 500;
