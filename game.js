@@ -17,7 +17,7 @@ class Game {
     this.player.preload();
     this.background.preload();
     backgroundMusic = loadSound("images/Flying.mp3");
-    flechaSound = loadSound("/images/flecha.mp3");
+    flechaSound = loadSound("images/flecha.mp3");
     devilSound = loadSound("images/devil.mp3");
     heartSound = loadSound("images/heart.mp3");
     gameOverImage = loadImage("images/gameOv.jpeg");
@@ -101,7 +101,7 @@ class Game {
       //console.log("Game Over");
     }
     // won the game
-    if (this.player.score === 5) {
+    if (this.player.score === 20) {
       //console.log("You win!");
       this.gameWon = true;
       setTimeout(function () {
